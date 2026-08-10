@@ -94,7 +94,7 @@ type RemoteFunctionOptionsInitParameters struct {
 	// Fully qualified name of the user-provided connection object which holds
 	// the authentication information to send requests to the remote service.
 	// Format: "projects/{projectId}/locations/{locationId}/connections/{connectionId}"
-	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v2/apis/namespaced/bigquery/v1beta1.Connection
+	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/namespaced/bigquery/v1beta1.Connection
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("name",true)
 	Connection *string `json:"connection,omitempty" tf:"connection,omitempty"`
 
@@ -152,7 +152,7 @@ type RemoteFunctionOptionsParameters struct {
 	// Fully qualified name of the user-provided connection object which holds
 	// the authentication information to send requests to the remote service.
 	// Format: "projects/{projectId}/locations/{locationId}/connections/{connectionId}"
-	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v2/apis/namespaced/bigquery/v1beta1.Connection
+	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/namespaced/bigquery/v1beta1.Connection
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("name",true)
 	// +kubebuilder:validation:Optional
 	Connection *string `json:"connection,omitempty" tf:"connection,omitempty"`
@@ -350,7 +350,7 @@ type RoutineParameters_2 struct {
 	DataGovernanceType *string `json:"dataGovernanceType,omitempty" tf:"data_governance_type,omitempty"`
 
 	// The ID of the dataset containing this routine
-	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v2/apis/namespaced/bigquery/v1beta1.Dataset
+	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/namespaced/bigquery/v1beta1.Dataset
 	// +kubebuilder:validation:Optional
 	DatasetID *string `json:"datasetId,omitempty" tf:"dataset_id,omitempty"`
 
@@ -438,7 +438,7 @@ type SparkOptionsInitParameters struct {
 
 	// Fully qualified name of the user-provided Spark connection object.
 	// Format: "projects/{projectId}/locations/{locationId}/connections/{connectionId}"
-	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v2/apis/namespaced/bigquery/v1beta1.Connection
+	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/namespaced/bigquery/v1beta1.Connection
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("name",true)
 	Connection *string `json:"connection,omitempty" tf:"connection,omitempty"`
 
@@ -529,7 +529,7 @@ type SparkOptionsParameters struct {
 
 	// Fully qualified name of the user-provided Spark connection object.
 	// Format: "projects/{projectId}/locations/{locationId}/connections/{connectionId}"
-	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v2/apis/namespaced/bigquery/v1beta1.Connection
+	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/namespaced/bigquery/v1beta1.Connection
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("name",true)
 	// +kubebuilder:validation:Optional
 	Connection *string `json:"connection,omitempty" tf:"connection,omitempty"`

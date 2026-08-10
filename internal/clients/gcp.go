@@ -27,8 +27,8 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	clusterv1beta1 "github.com/upbound/provider-gcp/v2/apis/cluster/v1beta1"
-	namespacedv1beta1 "github.com/upbound/provider-gcp/v2/apis/namespaced/v1beta1"
+	clusterv1beta1 "github.com/upbound/provider-gcp/v3/apis/cluster/v1beta1"
+	namespacedv1beta1 "github.com/upbound/provider-gcp/v3/apis/namespaced/v1beta1"
 )
 
 const (

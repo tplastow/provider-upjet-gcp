@@ -81,7 +81,7 @@ type BackupScheduleObservation struct {
 type BackupScheduleParameters struct {
 
 	// The database to create the backup schedule on.
-	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v2/apis/namespaced/spanner/v1beta1.Database
+	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/namespaced/spanner/v1beta1.Database
 	// +kubebuilder:validation:Optional
 	Database *string `json:"database,omitempty" tf:"database,omitempty"`
 
@@ -107,7 +107,7 @@ type BackupScheduleParameters struct {
 	IncrementalBackupSpec *IncrementalBackupSpecParameters `json:"incrementalBackupSpec,omitempty" tf:"incremental_backup_spec,omitempty"`
 
 	// The instance to create the database on.
-	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v2/apis/namespaced/spanner/v1beta1.Instance
+	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/namespaced/spanner/v1beta1.Instance
 	// +kubebuilder:validation:Optional
 	Instance *string `json:"instance,omitempty" tf:"instance,omitempty"`
 

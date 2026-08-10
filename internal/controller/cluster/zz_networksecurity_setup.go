@@ -9,12 +9,12 @@ import (
 
 	"github.com/crossplane/upjet/v2/pkg/controller"
 
-	addressgroup "github.com/upbound/provider-gcp/v2/internal/controller/cluster/networksecurity/addressgroup"
-	dnsthreatdetector "github.com/upbound/provider-gcp/v2/internal/controller/cluster/networksecurity/dnsthreatdetector"
-	gatewaysecuritypolicy "github.com/upbound/provider-gcp/v2/internal/controller/cluster/networksecurity/gatewaysecuritypolicy"
-	gatewaysecuritypolicyrule "github.com/upbound/provider-gcp/v2/internal/controller/cluster/networksecurity/gatewaysecuritypolicyrule"
-	tlsinspectionpolicy "github.com/upbound/provider-gcp/v2/internal/controller/cluster/networksecurity/tlsinspectionpolicy"
-	urllists "github.com/upbound/provider-gcp/v2/internal/controller/cluster/networksecurity/urllists"
+	addressgroup "github.com/upbound/provider-gcp/v3/internal/controller/cluster/networksecurity/addressgroup"
+	dnsthreatdetector "github.com/upbound/provider-gcp/v3/internal/controller/cluster/networksecurity/dnsthreatdetector"
+	gatewaysecuritypolicy "github.com/upbound/provider-gcp/v3/internal/controller/cluster/networksecurity/gatewaysecuritypolicy"
+	gatewaysecuritypolicyrule "github.com/upbound/provider-gcp/v3/internal/controller/cluster/networksecurity/gatewaysecuritypolicyrule"
+	tlsinspectionpolicy "github.com/upbound/provider-gcp/v3/internal/controller/cluster/networksecurity/tlsinspectionpolicy"
+	urllists "github.com/upbound/provider-gcp/v3/internal/controller/cluster/networksecurity/urllists"
 )
 
 // Setup_networksecurity creates all controllers with the supplied logger and adds them to
