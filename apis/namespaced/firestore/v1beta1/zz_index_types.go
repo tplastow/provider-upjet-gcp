@@ -138,7 +138,7 @@ type IndexInitParameters struct {
 	Collection *string `json:"collection,omitempty" tf:"collection,omitempty"`
 
 	// The Firestore database id. Defaults to "(default)".
-	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v2/apis/namespaced/firestore/v1beta1.Database
+	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/namespaced/firestore/v1beta1.Database
 	Database *string `json:"database,omitempty" tf:"database,omitempty"`
 
 	// Reference to a Database in firestore to populate database.
@@ -254,7 +254,7 @@ type IndexParameters struct {
 	Collection *string `json:"collection,omitempty" tf:"collection,omitempty"`
 
 	// The Firestore database id. Defaults to "(default)".
-	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v2/apis/namespaced/firestore/v1beta1.Database
+	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/namespaced/firestore/v1beta1.Database
 	// +kubebuilder:validation:Optional
 	Database *string `json:"database,omitempty" tf:"database,omitempty"`
 

@@ -9,11 +9,11 @@ import (
 
 	"github.com/crossplane/upjet/v2/pkg/controller"
 
-	backupschedule "github.com/upbound/provider-gcp/v2/internal/controller/namespaced/spanner/backupschedule"
-	database "github.com/upbound/provider-gcp/v2/internal/controller/namespaced/spanner/database"
-	databaseiammember "github.com/upbound/provider-gcp/v2/internal/controller/namespaced/spanner/databaseiammember"
-	instance "github.com/upbound/provider-gcp/v2/internal/controller/namespaced/spanner/instance"
-	instanceiammember "github.com/upbound/provider-gcp/v2/internal/controller/namespaced/spanner/instanceiammember"
+	backupschedule "github.com/upbound/provider-gcp/v3/internal/controller/namespaced/spanner/backupschedule"
+	database "github.com/upbound/provider-gcp/v3/internal/controller/namespaced/spanner/database"
+	databaseiammember "github.com/upbound/provider-gcp/v3/internal/controller/namespaced/spanner/databaseiammember"
+	instance "github.com/upbound/provider-gcp/v3/internal/controller/namespaced/spanner/instance"
+	instanceiammember "github.com/upbound/provider-gcp/v3/internal/controller/namespaced/spanner/instanceiammember"
 )
 
 // Setup_spanner creates all controllers with the supplied logger and adds them to

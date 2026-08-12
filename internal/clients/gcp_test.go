@@ -14,7 +14,7 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/prometheus/client_golang/prometheus/testutil"
 
-	namespacedv1beta1 "github.com/upbound/provider-gcp/v2/apis/namespaced/v1beta1"
+	namespacedv1beta1 "github.com/upbound/provider-gcp/v3/apis/namespaced/v1beta1"
 )
 
 type roundTripperFunc func(*http.Request) (*http.Response, error)
