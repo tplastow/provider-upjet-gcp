@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: 2025 The Crossplane Authors <https://crossplane.io>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: vertexai.gcp.upbound.io/v1beta1
+kind: ReasoningEngine
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vertexai/v1beta1/reasoningengine
+  labels:
+    testing.upbound.io/example-name: reasoning_engine
+  name: reasoning-engine
+spec:
+  forProvider:
+    displayName: reasoning-engine
+    description: Deployed with BYOC and Agent Identity through Crossplane
+    region: us-central1
+    spec:
+      agentFramework: google-adk
+      # AGENT_IDENTITY requires that serviceAccount is NOT set.
+      identityType: AGENT_IDENTITY
+      # class_methods is a JSON-encoded string in the API.
+      classMethods: |-
+        [
+          {
+            "api_mode": "async",
+            "name": "async_query",
+            "description": null,
+            "parameters": {
+              "type": "object",
+              "required": [],
+              "properties": {}
+            }
+          }
+        ]
+      # imageUri must reference an existing BYOC agent image in Artifact Registry.
+      containerSpec:
+        imageUri: us-central1-docker.pkg.dev/PROJECT_ID/vertex-byoc/byoc-agent:latest
+      deploymentSpec:
+        minInstances: 1
+        maxInstances: 3
+        containerConcurrency: 5
+        resourceLimits:
+          cpu: "4"
+          memory: 4Gi
