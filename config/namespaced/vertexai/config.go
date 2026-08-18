@@ -17,4 +17,19 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("google_vertex_ai_tensorboard", func(r *config.Resource) {
 		r.MarkAsRequired("region")
 	})
+	p.AddResourceConfigurator("google_vertex_ai_reasoning_engine", func(r *config.Resource) {
+		r.MarkAsRequired("region")
+		r.References["spec.service_account"] = config.Reference{
+			TerraformName: "google_service_account",
+		}
+		r.References["spec.deployment_spec.secret_env.secret_ref.secret"] = config.Reference{
+			TerraformName: "google_secret_manager_secret",
+		}
+		r.References["encryption_spec.kms_key_name"] = config.Reference{
+			TerraformName: "google_kms_crypto_key",
+		}
+		// spec.deployment_spec.psc_interface_config.network_attachment is left a
+		// plain string: google_compute_network_attachment is not a managed
+		// resource in this provider, so no reference target exists.
+	})
 }
