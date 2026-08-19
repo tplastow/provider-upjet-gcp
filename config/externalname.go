@@ -1102,8 +1102,7 @@ var terraformPluginSDKExternalNameConfigs = map[string]config.ExternalName{
 	"google_vertex_ai_tensorboard": config.TemplatedStringAsIdentifier("display_name", "projects/{{ .setup.configuration.project }}/locations/{{ .parameters.region }}/tensorboards/{{ .external_name }}"),
 	// The name is server-generated; imported by using the following
 	// projects/{{project}}/locations/{{region}}/reasoningEngines/{{name}}
-	// Please see the identifierFromProviderWithComputedName function for details.
-	"google_vertex_ai_reasoning_engine": identifierFromProviderWithComputedName(),
+	"google_vertex_ai_reasoning_engine": config.IdentifierFromProvider,
 	// No Import
 	"google_vertex_ai_reasoning_engine_iam_member": config.IdentifierFromProvider,
 	// No Import

@@ -19,6 +19,11 @@ func Configure(p *config.Provider) {
 	})
 	p.AddResourceConfigurator("google_vertex_ai_reasoning_engine", func(r *config.Resource) {
 		r.MarkAsRequired("region")
+		r.LateInitializer = config.LateInitializer{
+			IgnoredFields: []string{
+				"spec.deployment_spec.env",
+			},
+		}
 		r.References["spec.service_account"] = config.Reference{
 			TerraformName: "google_service_account",
 		}
