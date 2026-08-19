@@ -15,6 +15,9 @@ spec:
     displayName: reasoning-engine
     description: Deployed with BYOC and Agent Identity through Crossplane
     region: us-central1
+    # Setting deletionPolicy to FORCE ensures that any child session resources created
+    # during agent execution do not block resource deletion in GCP.
+    deletionPolicy: FORCE
     spec:
       agentFramework: google-adk
       # AGENT_IDENTITY requires that serviceAccount is NOT set.
@@ -24,12 +27,61 @@ spec:
         [
           {
             "api_mode": "async",
-            "name": "async_query",
-            "description": null,
+            "name": "async_create_session",
             "parameters": {
               "type": "object",
-              "required": [],
-              "properties": {}
+              "required": ["user_id"],
+              "properties": {
+                "user_id": {"type": "string"}
+              }
+            }
+          },
+          {
+            "api_mode": "async",
+            "name": "async_get_session",
+            "parameters": {
+              "type": "object",
+              "required": ["user_id", "session_id"],
+              "properties": {
+                "user_id": {"type": "string"},
+                "session_id": {"type": "string"}
+              }
+            }
+          },
+          {
+            "api_mode": "async",
+            "name": "async_list_sessions",
+            "parameters": {
+              "type": "object",
+              "required": ["user_id"],
+              "properties": {
+                "user_id": {"type": "string"}
+              }
+            }
+          },
+          {
+            "api_mode": "async",
+            "name": "async_delete_session",
+            "parameters": {
+              "type": "object",
+              "required": ["user_id", "session_id"],
+              "properties": {
+                "user_id": {"type": "string"},
+                "session_id": {"type": "string"}
+              }
+            }
+          },
+          {
+            "api_mode": "async_stream",
+            "name": "async_stream_query",
+            "parameters": {
+              "type": "object",
+              "required": ["user_id", "session_id", "message"],
+              "properties": {
+                "user_id": {"type": "string"},
+                "session_id": {"type": "string"},
+                "message": {"type": "string"}
+              }
             }
           }
         ]
