@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 The Crossplane Authors <https://crossplane.io>
+# SPDX-FileCopyrightText: 2026 The Crossplane Authors <https://crossplane.io>
 #
 # SPDX-License-Identifier: Apache-2.0
 
@@ -12,86 +12,8 @@ metadata:
   name: reasoning-engine
 spec:
   forProvider:
-    displayName: reasoning-engine
-    description: Deployed with BYOC and Agent Identity through Crossplane
-    region: us-central1
-    # Setting deletionPolicy to FORCE ensures that any child session resources created
-    # during agent execution do not block resource deletion in GCP.
     deletionPolicy: FORCE
+    displayName: reasoning-engine
+    region: us-central1
     spec:
-      agentFramework: google-adk
-      # AGENT_IDENTITY requires that serviceAccount is NOT set.
       identityType: AGENT_IDENTITY
-      # class_methods is a JSON-encoded string in the API.
-      classMethods: |-
-        [
-          {
-            "api_mode": "async",
-            "name": "async_create_session",
-            "parameters": {
-              "type": "object",
-              "required": ["user_id"],
-              "properties": {
-                "user_id": {"type": "string"}
-              }
-            }
-          },
-          {
-            "api_mode": "async",
-            "name": "async_get_session",
-            "parameters": {
-              "type": "object",
-              "required": ["user_id", "session_id"],
-              "properties": {
-                "user_id": {"type": "string"},
-                "session_id": {"type": "string"}
-              }
-            }
-          },
-          {
-            "api_mode": "async",
-            "name": "async_list_sessions",
-            "parameters": {
-              "type": "object",
-              "required": ["user_id"],
-              "properties": {
-                "user_id": {"type": "string"}
-              }
-            }
-          },
-          {
-            "api_mode": "async",
-            "name": "async_delete_session",
-            "parameters": {
-              "type": "object",
-              "required": ["user_id", "session_id"],
-              "properties": {
-                "user_id": {"type": "string"},
-                "session_id": {"type": "string"}
-              }
-            }
-          },
-          {
-            "api_mode": "async_stream",
-            "name": "async_stream_query",
-            "parameters": {
-              "type": "object",
-              "required": ["user_id", "session_id", "message"],
-              "properties": {
-                "user_id": {"type": "string"},
-                "session_id": {"type": "string"},
-                "message": {"type": "string"}
-              }
-            }
-          }
-        ]
-      # imageUri must reference an existing BYOC agent image in Artifact Registry.
-      containerSpec:
-        imageUri: us-central1-docker.pkg.dev/PROJECT_ID/vertex-byoc/byoc-agent:latest
-      deploymentSpec:
-        minInstances: 1
-        maxInstances: 3
-        containerConcurrency: 5
-        resourceLimits:
-          cpu: "4"
-          memory: 4Gi

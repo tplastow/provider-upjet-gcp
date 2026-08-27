@@ -1300,6 +1300,16 @@ func (in *ReasoningEngineIAMBindingInitParameters) DeepCopyInto(out *ReasoningEn
 		*out = new(string)
 		**out = **in
 	}
+	if in.ReasoningEngineRef != nil {
+		in, out := &in.ReasoningEngineRef, &out.ReasoningEngineRef
+		*out = new(v2.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.ReasoningEngineSelector != nil {
+		in, out := &in.ReasoningEngineSelector, &out.ReasoningEngineSelector
+		*out = new(v2.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
 		*out = new(string)
@@ -1443,6 +1453,16 @@ func (in *ReasoningEngineIAMBindingParameters) DeepCopyInto(out *ReasoningEngine
 		in, out := &in.ReasoningEngine, &out.ReasoningEngine
 		*out = new(string)
 		**out = **in
+	}
+	if in.ReasoningEngineRef != nil {
+		in, out := &in.ReasoningEngineRef, &out.ReasoningEngineRef
+		*out = new(v2.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.ReasoningEngineSelector != nil {
+		in, out := &in.ReasoningEngineSelector, &out.ReasoningEngineSelector
+		*out = new(v2.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
@@ -1641,6 +1661,16 @@ func (in *ReasoningEngineIAMMemberInitParameters) DeepCopyInto(out *ReasoningEng
 		*out = new(string)
 		**out = **in
 	}
+	if in.ReasoningEngineRef != nil {
+		in, out := &in.ReasoningEngineRef, &out.ReasoningEngineRef
+		*out = new(v2.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.ReasoningEngineSelector != nil {
+		in, out := &in.ReasoningEngineSelector, &out.ReasoningEngineSelector
+		*out = new(v2.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
 		*out = new(string)
@@ -1772,6 +1802,16 @@ func (in *ReasoningEngineIAMMemberParameters) DeepCopyInto(out *ReasoningEngineI
 		in, out := &in.ReasoningEngine, &out.ReasoningEngine
 		*out = new(string)
 		**out = **in
+	}
+	if in.ReasoningEngineRef != nil {
+		in, out := &in.ReasoningEngineRef, &out.ReasoningEngineRef
+		*out = new(v2.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.ReasoningEngineSelector != nil {
+		in, out := &in.ReasoningEngineSelector, &out.ReasoningEngineSelector
+		*out = new(v2.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region

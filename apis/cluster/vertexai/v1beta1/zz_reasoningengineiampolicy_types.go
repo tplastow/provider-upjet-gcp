@@ -35,7 +35,6 @@ type ReasoningEngineIAMPolicyInitParameters struct {
 
 	// Used to find the parent resource to bind the IAM policy to
 	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/cluster/vertexai/v1beta1.ReasoningEngine
-	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("name",true)
 	ReasoningEngine *string `json:"reasoningEngine,omitempty" tf:"reasoning_engine,omitempty"`
 
 	// Reference to a ReasoningEngine in vertexai to populate reasoningEngine.
@@ -110,7 +109,6 @@ type ReasoningEngineIAMPolicyParameters struct {
 
 	// Used to find the parent resource to bind the IAM policy to
 	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/cluster/vertexai/v1beta1.ReasoningEngine
-	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("name",true)
 	// +kubebuilder:validation:Optional
 	ReasoningEngine *string `json:"reasoningEngine,omitempty" tf:"reasoning_engine,omitempty"`
 

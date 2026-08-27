@@ -48,7 +48,16 @@ type ReasoningEngineIAMMemberInitParameters struct {
 
 	Project *string `json:"project,omitempty" tf:"project,omitempty"`
 
+	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/cluster/vertexai/v1beta1.ReasoningEngine
 	ReasoningEngine *string `json:"reasoningEngine,omitempty" tf:"reasoning_engine,omitempty"`
+
+	// Reference to a ReasoningEngine in vertexai to populate reasoningEngine.
+	// +kubebuilder:validation:Optional
+	ReasoningEngineRef *v2.Reference `json:"reasoningEngineRef,omitempty" tf:"-"`
+
+	// Selector for a ReasoningEngine in vertexai to populate reasoningEngine.
+	// +kubebuilder:validation:Optional
+	ReasoningEngineSelector *v2.Selector `json:"reasoningEngineSelector,omitempty" tf:"-"`
 
 	Region *string `json:"region,omitempty" tf:"region,omitempty"`
 
@@ -84,8 +93,17 @@ type ReasoningEngineIAMMemberParameters struct {
 	// +kubebuilder:validation:Optional
 	Project *string `json:"project,omitempty" tf:"project,omitempty"`
 
+	// +crossplane:generate:reference:type=github.com/upbound/provider-gcp/v3/apis/cluster/vertexai/v1beta1.ReasoningEngine
 	// +kubebuilder:validation:Optional
 	ReasoningEngine *string `json:"reasoningEngine,omitempty" tf:"reasoning_engine,omitempty"`
+
+	// Reference to a ReasoningEngine in vertexai to populate reasoningEngine.
+	// +kubebuilder:validation:Optional
+	ReasoningEngineRef *v2.Reference `json:"reasoningEngineRef,omitempty" tf:"-"`
+
+	// Selector for a ReasoningEngine in vertexai to populate reasoningEngine.
+	// +kubebuilder:validation:Optional
+	ReasoningEngineSelector *v2.Selector `json:"reasoningEngineSelector,omitempty" tf:"-"`
 
 	// +kubebuilder:validation:Optional
 	Region *string `json:"region,omitempty" tf:"region,omitempty"`
@@ -131,7 +149,7 @@ type ReasoningEngineIAMMember struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.member) || (has(self.initProvider) && has(self.initProvider.member))",message="spec.forProvider.member is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.reasoningEngine) || (has(self.initProvider) && has(self.initProvider.reasoningEngine))",message="spec.forProvider.reasoningEngine is a required parameter"
+	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.region) || (has(self.initProvider) && has(self.initProvider.region))",message="spec.forProvider.region is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.role) || (has(self.initProvider) && has(self.initProvider.role))",message="spec.forProvider.role is a required parameter"
 	Spec   ReasoningEngineIAMMemberSpec   `json:"spec"`
 	Status ReasoningEngineIAMMemberStatus `json:"status,omitempty"`
